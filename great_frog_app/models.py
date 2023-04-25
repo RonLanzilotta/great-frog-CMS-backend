@@ -1,19 +1,14 @@
 from django.db import models
-from django.contrib.postgres.fields import ArrayField
 
 
 class Customer(models.Model):
     firstName = models.CharField(
-        # required = True,
         max_length = 30)
     lastName = models.CharField(
-        # required = True,
         max_length = 30)
     address = models.CharField(
-        # required = False,
         max_length = 128)
     phoneNumber = models.CharField(
-        # required = True,
         max_length = 14)
     email = models.EmailField(
         max_length = 52,
@@ -21,29 +16,22 @@ class Customer(models.Model):
     )
 
     def __str__(self):
-        return f'{self.firstName}'
+        return f'{self.firstName} {self.lastName}'
 
 class Order(models.Model):
-    firstName = models.OneToOneField(
-        Customer,
-        on_delete=models.CASCADE,
-        related_name='firstNames')
-    lastName = models.OneToOneField(
-        Customer,
-        on_delete=models.CASCADE,
-        related_name='lastNames')
-    email = models.OneToOneField(
-        Customer,
-        on_delete=models.CASCADE,
-        related_name='emails')
-    item = ArrayField(
-            models.CharField(
-                # required = True,
+    customer = models.ForeignKey(Customer,
+        on_delete = models.CASCADE,
+        related_name = 'orders'
+        )
+    item = models.CharField(
                 max_length = 255
-                ))
-    dateOrdered = models.DateTimeField(
+                )
+    notes = models.CharField(
+                max_length = 255
+                )
+    dateOrdered = models.DateTimeField("date ordered",
         auto_now = True)
     
     def __str__(self):
-        return f'{self.id}'
+        return f'{self.customer} {self}'
     

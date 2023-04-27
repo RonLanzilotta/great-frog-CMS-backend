@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'great_frog_app',
-    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -79,9 +79,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'great_frog',
-        'USER': 'great_frog_admin',
-        'PASSWORD': 'Greatfrog72!',
-        'HOST': 'localhost'
+        'USER': 'ronlanzilotta',
+        'PASSWORD': 'admin12345',
+        'HOST': 'localhost',
+        'PORT': '5432'
     }
 }
 

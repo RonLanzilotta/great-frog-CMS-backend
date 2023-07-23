@@ -8,5 +8,5 @@ from rest_framework import permissions
 # from knox.models import AuthToken
 
 from .serializers import UserSerializer, CustomerSerializer, OrderSerializer
-from .models import Customer, Order
+from .models import Customer, Order, Personnel, Item
 

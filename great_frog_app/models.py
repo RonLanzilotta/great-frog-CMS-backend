@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-import STATE_LIST
+from .STATE_LIST import STATE_LIST
 
 class Personnel(models.Model):
     user = models.OneToOneField(
@@ -13,15 +13,19 @@ class Personnel(models.Model):
         unique = True
     )
 
+    is_employee = models.BooleanField(
+        default = False
+    )
+
     def __str__(self):
         return self.username
 
 class Customer(models.Model):
-    firstName = models.CharField(
+    first_name = models.CharField(
         max_length = 32
     )
 
-    lastName = models.CharField(
+    last_name = models.CharField(
         max_length = 32
     )
     
@@ -38,7 +42,7 @@ class Customer(models.Model):
         choices = STATE_LIST
     )
     
-    phoneNumber = models.CharField(
+    phone_number = models.CharField(
         max_length = 14
     )
     

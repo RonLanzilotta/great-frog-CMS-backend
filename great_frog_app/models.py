@@ -41,6 +41,10 @@ class Customer(models.Model):
         max_length = 32,
         choices = STATE_LIST
     )
+
+    zip_code = models.IntegerField(
+        default = 11217
+    )
     
     phone_number = models.CharField(
         max_length = 14

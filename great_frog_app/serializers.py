@@ -30,6 +30,7 @@ class CustomerSerializer(serializers.BaseSerializer):
             "address": instance.address,
             "city": instance.city,
             "state": instance.state,
+            "zip_code": instance.zip_code,
             "phone_number": instance.phone_number,
             "email": instance.email
         }
